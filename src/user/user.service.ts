@@ -1,14 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { ConfigEnum } from './enum/enum.config';
+import { ConfigEnum } from 'src/enum/enum.config';
 @Injectable()
-export class AppService {
+export class UserService {
   constructor(private readonly configService: ConfigService) {}
-  getHello(): string {
+  findAll() {
     return (
-      'Hello World!' +
       this.configService.get(ConfigEnum.DB_PORT) +
-      '\n' +
       this.configService.get(ConfigEnum.APP_NAME)
     );
   }
